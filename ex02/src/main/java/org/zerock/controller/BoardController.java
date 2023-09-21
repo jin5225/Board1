@@ -84,6 +84,7 @@ public class BoardController {
 	@PostMapping("/remove")
 	public String remove(Long bno,RedirectAttributes rttr, Criteria cri) {
 		log.info("삭제 url 요청");
+		
 		if(service.remove(bno)) { //이상없으면 result 이름으로 success 라는 문자 전송
 			rttr.addFlashAttribute("oper", "remove");
 			rttr.addFlashAttribute("result", bno); 
@@ -115,10 +116,7 @@ public class BoardController {
 		Date date = new Date();
 		model.addAttribute("date", date);
 		return "date";
-		
-
 	}
-	
 }
 
 

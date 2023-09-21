@@ -42,8 +42,8 @@
                                         <button type="button" class="btn btn-default" data-oper="modify">수정하기</button>
                                         <button type="button" class="btn btn-default" data-oper="remove">삭제하기</button>
                                         <button type="button" class="btn btn-default" data-oper="list">목록보기</button>
-                                        <button type ="button" class = "btn btn-default" onclick="window.open('#', 'remove_check','width=300','height=300')">새창테스트</button>
                                      </form>
+                                        <button type="button" class ="btn btn-default" onclick="removecheck">새창테스트</button>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -90,22 +90,21 @@
 				}
 			}
 			else if(operation==="remove") //삭제 버튼이 눌리면
-				formObj.attr("action","/board/remove");
+				<!--  formObj.attr("action","/board/remove");-->
+				window.open("/board/remove2.jsp","삭제확인","width=300px,height=300px");
 			else if(operation==="list"){ //리스트 버튼이 눌리면
 				console.log("리스트 버튼 동작");
 				self.location="/board/list";  //board/list 요청
 				return; //리턴없으면 아래문장이 실행됨으로
 			}
-			console.log("submit 동작합니다.");
-			formObj.submit(); //submit 전송
+				console.log("submit 동작합니다.");
+				formObj.submit(); //submit 전송
 		}); //e는 버튼 이벤트
 		
 		
 		
 	});
 	</script>
-
-
 
 </body>
 
