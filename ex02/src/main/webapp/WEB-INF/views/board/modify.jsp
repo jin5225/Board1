@@ -42,7 +42,7 @@
                                         <button type="button" class="btn btn-default" data-oper="modify">수정하기</button>
                                         <button type="button" class="btn btn-default" data-oper="remove">삭제하기</button>
                                         <button type="button" class="btn btn-default" data-oper="list">목록보기</button>
-                                        <button type ="button" class = "btn btn-default" onclick="window.open('#', 'delete-check','width=500','height=500')">새창테스트</button>
+                                        <button type ="button" class = "btn btn-default" onclick="window.open('#', 'remove_check','width=300','height=300')">새창테스트</button>
                                      </form>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
