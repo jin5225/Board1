@@ -43,7 +43,7 @@
                                         <button type="button" class="btn btn-default" data-oper="remove">삭제하기</button>
                                         <button type="button" class="btn btn-default" data-oper="list">목록보기</button>
                                      </form>
-                                        <button type="button" class ="btn btn-default" onclick="removecheck">새창테스트</button>
+                                        <button type="button" class ="btn btn-default" id="removecheck">새창테스트</button>
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                             </div>
@@ -69,6 +69,10 @@
 	$(function(){  
 		var formObj=$("form");
 		
+		$("#removecheck").click(function()	{
+			window.open("/board/remove2.jsp", "삭제확인","width=300, height=300" );
+		});
+		
 		$("button").on("click",function(e){
 			e.preventDefault(); //버튼에 걸린 이벤트 없애고
 			var operation = $(this).data("oper") // data-oper속성의 값읽기 즉,어떤 버튼인지 확인
@@ -91,7 +95,7 @@
 			}
 			else if(operation==="remove") //삭제 버튼이 눌리면
 				<!--  formObj.attr("action","/board/remove");-->
-				window.open("/board/remove2.jsp","삭제확인","width=300px,height=300px");
+				window.open("/remove2","삭제확인","width=300px,height=300px");
 			else if(operation==="list"){ //리스트 버튼이 눌리면
 				console.log("리스트 버튼 동작");
 				self.location="/board/list";  //board/list 요청

@@ -28,7 +28,6 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	BoardService service; //생성자 주입
 
 	@GetMapping("/list") //전체 목록 board/list (get)
@@ -117,6 +116,13 @@ public class BoardController {
 		model.addAttribute("date", date);
 		return "date";
 	}
+	
+	@GetMapping("/remove2")
+	public String removecheck()	{
+		return "remove2";
+	}
+	
+
 }
 
 
