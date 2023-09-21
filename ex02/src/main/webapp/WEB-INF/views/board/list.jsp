@@ -2,13 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="java.text.SimpleDateFormat" %>
-<%
-	Date now = new Date();
-	SimpleDateFormat format = new SimpleDateFormat("yyyy년 MM월 dd일 HH시 mm분 ss초");
-	String formatedNow = format.format(now);
-%>
+
 
 
 <%--헤더 파일 넣기 --%>    
@@ -27,7 +21,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            게시글 목록 보기(<a href="register">게시글 쓰기</a>)<div class="pull-right">현재 시각 : <%= formatedNow %></div>
+                            게시글 목록 보기(<a href="register">게시글 쓰기</a>)<div class="pull-right">현재 시각 : ${now}</div>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">

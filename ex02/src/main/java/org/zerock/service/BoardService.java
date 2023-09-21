@@ -1,5 +1,6 @@
 package org.zerock.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.zerock.domain.BoardVO;
@@ -22,7 +23,10 @@ public interface BoardService {
 	Long count(Criteria cri);
 	//7. 좋아요 올리기
 	void good(Long bno);
-
+	
+	
+	//8. 시간 출력
+	Date now();
 }
 
 

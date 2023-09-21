@@ -58,4 +58,8 @@ public class BoardServiceTests {
 		service.good(11L);
 	}
 	
+	@Test
+	public void TestNow()	{
+		log.info("현재시간 : " + service.now());
+	}
 }

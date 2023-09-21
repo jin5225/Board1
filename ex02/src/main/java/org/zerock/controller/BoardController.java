@@ -1,10 +1,18 @@
 package org.zerock.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.text.DateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.domain.BoardVO;
 import org.zerock.domain.Criteria;
@@ -20,6 +28,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class BoardController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(BoardController.class);
 	BoardService service; //생성자 주입
 
 	@GetMapping("/list") //전체 목록 board/list (get)
@@ -27,9 +36,10 @@ public class BoardController {
 		log.info("list url 요청..");
 		model.addAttribute("list", service.getList(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri, service.count(cri)));
+		model.addAttribute("now", service.now());
 		// -> board/list.jsp
 	}
-	
+
 	@GetMapping("/chart")
 	public void chart()	{
 		log.info("chart url 요청");
@@ -98,7 +108,17 @@ public class BoardController {
 		service.good(bno);
 		return "redirect:/board/get?bno="+vo.getBno()+"&pageNum="+cri.getPageNum()+"&amount="+cri.getAmount();
 	}
- 
+	
+	@RequestMapping
+	public String serverTime(Model model) {
+		
+		Date date = new Date();
+		model.addAttribute("date", date);
+		return "date";
+		
+
+	}
+	
 }
 
 
